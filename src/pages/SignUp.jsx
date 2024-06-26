@@ -21,8 +21,8 @@ export default function Signup() {
   const navigate = useNavigate();
 
   return (
-    <div className="w-screen h-screen  flex justify-center items-center box-si box-border bg-slate-700  ">
-      <div className=" p flex flex-col justify-center items-center p-4 rounded-lg border border-slate-500">
+    <div className="w-full h-full  flex justify-center items-center box-si box-border bg-slate-700  ">
+      <div className=" p flex flex-col justify-center items-center p-4 rounded-lg border border-slate-500 bg-slate-700 ">
         <Heading input="Sign up" />
         <Toast />
         <p className="mt-2 w-full p-2 text-sm text-center text-white">

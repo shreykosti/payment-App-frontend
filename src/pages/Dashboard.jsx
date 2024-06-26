@@ -59,15 +59,15 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className="w-screen h-screen">
+    <div className="w-full h-screen bg-slate-700">
       <Toast />
       <Navbar firstname={name} />
-      <div className="flex flex-col relative top-5 ">
+      <div className="flex flex-col relative top-5 bg-slate-700 ">
         <div className="py-3 flex justify-between">
           <span className="ml-10">Your Balance: ${balance}</span>
           <span className="mr-10">{userName}</span>
         </div>
-        <div>
+        <div className="bg-slate-700">
           <div className="px-10 mt-7">
             <Inputbox
               onChange={(e) => {
@@ -121,6 +121,7 @@ export default function Dashboard() {
                 usernameSendTo={user.username}
                 firstname={user.firstname}
                 lastname={user.lastname}
+                id={user._id}
               />
             ))}
             <span className="text-3xl text-center">{error}</span>

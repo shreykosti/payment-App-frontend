@@ -8,7 +8,7 @@ import UpdateProfile from "./pages/Updateprofile.jsx";
 import Aftermoney from "./pages/Aftermoney.jsx";
 function App() {
   return (
-    <div className=" text-slate-400 h-screen  font-medium w-screen bg-slate-700">
+    <div className=" text-slate-400  h-full w-full font-medium bg-slate-700 ">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Firstpage />} />
@@ -26,7 +26,7 @@ function App() {
 
 function Firstpage() {
   return (
-    <div className=" p-10 text-white text-sm">
+    <div className=" p-10 w-full h-screen text-white text-sm bg-slate-700 ">
       <button className="block">PAYTM V1</button>
       <Link to="/signup" target="_blank">
         <button className="p-5 border-4 rounded-lg border-blue-950 m-5 hover:bg-neutral-400">

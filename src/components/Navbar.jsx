@@ -8,7 +8,7 @@ import {
 export function Navbar({ firstname }) {
   const navigate = useNavigate();
   return (
-    <div className="h-12 flex items-center gap-1 justify-around sm:justify-between bg-slate-700 shadow-md shadow-slate-950">
+    <div className="h-12 w-full flex items-center gap-1 justify-around sm:justify-between bg-slate-700 shadow-md shadow-slate-950">
       <button
         className="text-xl font-bold relative left-5 hidden sm:flex"
         onClick={() => {

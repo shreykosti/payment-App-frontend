@@ -7,7 +7,7 @@ import {
 } from "../components/Navigationbutton";
 
 import { useNavigate, useLocation } from "react-router-dom";
-import {Toast} from "../components/Toast";
+import { Toast } from "../components/Toast";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -50,9 +50,9 @@ export default function Aftermoney() {
     };
 
   return (
-    <div className="flex flex-col items-center h-full w-full relative">
+    <div className="flex flex-col items-center h-screen w-screen relative bg-slate-700 ">
       <Toast />
-      <nav className="flex items-center justify-center md:justify-between bg-slate-700 w-full h-14 shadow-md shadow-slate-950">
+      <nav className="flex items-center justify-center md:justify-between bg-slate-700 w-full h-14 shadow-md shadow-slate-950 bg-slate-700 ">
         <Profile nameuser={name} />
         <div className="mr-0 md:mr-10 flex gap-3 sm:gap-3">
           <Logoutbutton />
