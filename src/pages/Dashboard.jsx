@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Toast } from "../components/Toast";
-
+import Modal from "../components/Modal";
 export default function Dashboard() {
   const location = useLocation();
   const [balance, setBalance] = useState(0);
@@ -18,6 +18,7 @@ export default function Dashboard() {
   const [name, setName] = useState("User");
   const [userName, setuserName] = useState("User");
   const [error, setError] = useState("hello");
+  const [lastname, setlastname] = useState("User");
   const navigate = useNavigate();
   let tocken = localStorage.getItem("token");
 
@@ -51,6 +52,7 @@ export default function Dashboard() {
         setBalance(balance);
         setName(firstname);
         setuserName(username);
+        setlastname(lastname);
       })
       .catch(() => {
         const notify = () => toast("not authorised to be on this page");
@@ -61,7 +63,7 @@ export default function Dashboard() {
   return (
     <div className="w-full h-screen bg-slate-700">
       <Toast />
-      <Navbar firstname={name} />
+      <Navbar name={name} />
       <div className="flex flex-col relative top-5 bg-slate-700 ">
         <div className="py-3 flex justify-between">
           <span className="ml-10">Your Balance: ${balance}</span>
@@ -102,27 +104,28 @@ export default function Dashboard() {
           </div>
           <div className="px-10 mt-5">
             {filteredData.map((user) => (
-              <Payment
-                onClick={() => {
-                  {
-                    tocken === null
-                      ? navigate("/signup")
-                      : navigate("/sendmoney", {
-                          state: {
-                            usernameSendTo: user.username,
-                            firstname: user.firstname,
-                            lastname: user.lastname,
-                            id: user._id,
-                            balance: balance,
-                          },
-                        });
-                  }
-                }}
-                usernameSendTo={user.username}
-                firstname={user.firstname}
-                lastname={user.lastname}
-                id={user._id}
-              />
+              <div>
+                <Payment
+                  onClick={() => {
+                    {
+                      tocken === null
+                        ? navigate("/signup")
+                        : navigate("/sendmoney", {
+                            state: {
+                              usernameSendTo: user.username,
+                              firstname: user.firstname,
+                              lastname: user.lastname,
+                              id: user._id,
+                              balance: balance,
+                            },
+                          });
+                    }
+                  }}
+                  usernameSendTo={user.username}
+                  firstname={user.firstname}
+                  lastname={user.lastname}
+                />
+              </div>
             ))}
             <span className="text-3xl text-center">{error}</span>
           </div>

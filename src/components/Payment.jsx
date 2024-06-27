@@ -1,6 +1,6 @@
-export function Payment({ usernameSendTo, lastname, firstname, onClick, id }) {
+export function Payment({ usernameSendTo, lastname, firstname, onClick }) {
   return (
-    <div key={id}>
+    <div>
       <div className="flex items-center justify-between text-white py-2">
         <span>
           <span className="hidden sm:flex">UserName:</span> {usernameSendTo}
