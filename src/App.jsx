@@ -6,6 +6,7 @@ import Sendmoney from "./pages/Sendmoney.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Aftermoney from "./pages/Aftermoney.jsx";
 import TransationHistory from "./pages/TransationHistory.jsx";
+import Pinpage from "./pages/Pinpage.jsx";
 import { Toast } from "./components/Toast.jsx";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -21,6 +22,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/transfer/complete" element={<Aftermoney />} />
           <Route path="/transactionhistory" element={<TransationHistory />} />
+          <Route path="/pinpage" element={<Pinpage />} />
         </Routes>
       </BrowserRouter>
     </div>
@@ -85,6 +87,11 @@ function Firstpage() {
           <Link to="/transactionhistory" target="_blank">
             <button className="p-5 border-4 rounded-lg border-blue-950 m-5 hover:bg-neutral-400">
               transaction history
+            </button>
+          </Link>
+          <Link to="/pinpage" target="_blank">
+            <button className="p-5 border-4 rounded-lg border-blue-950 m-5 hover:bg-neutral-400">
+              Pin Page
             </button>
           </Link>
         </div>

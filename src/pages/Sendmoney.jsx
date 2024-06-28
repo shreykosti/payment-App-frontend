@@ -55,41 +55,21 @@ export default function Sendmoney() {
         <Button
           input="Initiate Transfer"
           onClick={() => {
+            console.log(amount, usernameSendTo, id);
             if (amount <= 0) {
               alert("Please enter a valid amount");
               return;
             }
-            axios
-              .post(
-                "http://localhost:3000/api/v1/account/transfer",
-                {
-                  to: id,
-                  amount: amount,
-                },
-                {
-                  headers: {
-                    Authorization: `Bearer ${tocken}`,
-                  },
-                }
-              )
-              .then((res) => {
-                console.log(res);
-                navigate("/transfer/complete", {
-                  state: {
-                    amountsend: amount,
-                    usernameSendTo: usernameSendTo,
-                    firstname: firstname,
-                    lastname: lastname,
-                    balance: balance,
-                  },
-                });
-                alert("Money transfered successfully");
-              })
-              .catch((err) => {
-                console.log(err);
-                navigate("/dashboard");
-                alert("Money transfer failed");
-              });
+            navigate("/pinpage", {
+              state: {
+                tosendname: usernameSendTo,
+                to: id,
+                amount: amount,
+                firstname: firstname,
+                lastname: lastname,
+                balance: balance,
+              },
+            });
           }}
         />
       </div>

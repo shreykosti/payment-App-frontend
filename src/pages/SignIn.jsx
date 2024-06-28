@@ -98,8 +98,8 @@ export default function Signin() {
         <p className="mt-4">
           Don't have an have an account?
           <Link to="/signup">
-            <button className="text-black">
-              <span className=" hover:text-white">Sign Up</span>
+            <button className="text-white">
+              <span className="hover:text-black hover:text-xl">Sign Up</span>
             </button>
           </Link>
         </p>

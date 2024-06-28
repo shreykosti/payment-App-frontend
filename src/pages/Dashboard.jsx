@@ -13,12 +13,13 @@ export default function Dashboard() {
   const location = useLocation();
   const [balance, setBalance] = useState(0);
   const [filteredData, setFilteredData] = useState([
-    { username: "plz enter a username in top bar" },
+    { username: "not authorised" },
   ]);
   const [name, setName] = useState("User");
   const [userName, setuserName] = useState("User");
   const [error, setError] = useState("hello");
   const [lastname, setlastname] = useState("User");
+  const [visible, setVisible] = useState("hidden");
   const navigate = useNavigate();
   let tocken = localStorage.getItem("token");
 
@@ -73,6 +74,7 @@ export default function Dashboard() {
           <div className="px-10 mt-7">
             <Inputbox
               onChange={(e) => {
+                setVisible("visible");
                 axios
                   .get(
                     `http://localhost:3000/api/v1/user/bulk?filter=${
@@ -102,7 +104,7 @@ export default function Dashboard() {
               placeholdername="Search Users"
             />
           </div>
-          <div className="px-10 mt-5">
+          <div className={`px-10 mt-5 ${visible}`}>
             {filteredData.map((user) => (
               <div>
                 <Payment

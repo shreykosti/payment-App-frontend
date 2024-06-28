@@ -35,7 +35,8 @@ export default function Aftermoney() {
       });
   }, []);
   const location = useLocation();
-  const { amountsend, firstname, lastname, usernameSendTo, balance } =
+  console.log(location.state);
+  const { amount, tosendname, firstname, lastname, balance } =
     location.state || {
       amountsend: "Not Authrised",
       firstname: "Not Authrised",
@@ -65,13 +66,12 @@ export default function Aftermoney() {
         </div>
         <div className="w-11/12 sm:w-3/4 xl:w-1/2 flex flex-col gap-3 border p-3 rounded-lg">
           <span className="p-2 sm:p-3 border border-slate-500 hover:bg-slate-950 flex justify-between">
-            <span>Amount Send:</span>{" "}
-            <span className="mr-40">{amountsend}</span>
+            <span>Amount Send:</span> <span className="mr-40">{amount}</span>
           </span>
           <span className=" text-center text-xl  ">Reciver info</span>
           <span className="p-2 sm:p-3 border border-slate-500 hover:bg-slate-950 flex justify-between">
             <span>Username :</span>
-            <span className="mr-40">{usernameSendTo}</span>
+            <span className="mr-40">{tosendname}</span>
           </span>
           <span className="p-2 sm:p-3 border border-slate-500 hover:bg-slate-950 flex justify-between">
             <span>First Name :</span>
