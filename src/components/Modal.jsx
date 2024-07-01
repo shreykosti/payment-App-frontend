@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Inputbox } from "./Inputbox";
+import { Toast } from "./Toast";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
-const Modal = () => {
+const Modal = ({ border, size }) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
@@ -16,9 +19,11 @@ const Modal = () => {
   const tocken = localStorage.getItem("token");
   return (
     <div>
-      <div className="h-full flex items-center gap-2 px-2 sm:px-6 font-sans text-[0.7rem] sm:text-xs font-bold text-center text-white uppercase align-middle transition-all rounded-lg select-none disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none hover:bg-gray-900 active:bg-gray-900/20 border">
+      <div
+        className={`w-full ${border}  relative isolation-auto z-10  before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full  before:-right-full before:hover:right-0 before:rounded-full before:bg-black before:-z-10 before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-700 inline-flex items-center justify-center  text-sm font-semibold text-white  border border-gray-200  shadow-sm gap-x-2   disabled:opacity-50 disabled:pointer-events-none`}
+      >
         <button
-          className="font-sans text-[0.7rem] sm:text-xs font-bold text-center text-white uppercase h-full"
+          className={` px-4 py-[13px] font-sans   ${size} font-bold text-center text-white w-full bbg  h-full`}
           onClick={() => {
             axios
               .get("http://localhost:3000/api/v1/account/getBallance", {
@@ -35,7 +40,7 @@ const Modal = () => {
             handleOpen();
           }}
         >
-          update
+          Update
         </button>
       </div>
 
@@ -80,18 +85,48 @@ const Modal = () => {
               <div className="p-4 md:p-5 space-y-4 text-xl text-black">
                 {/* input */}
                 <Inputbox
+                  vissibl={true}
+                  message={"Enter a name to update your first name"}
                   onChange={(e) => {
                     setChangeFirstname(e.target.value);
                   }}
                   labelname={`FirstName : ${firstname} `}
-                  placeholder={`enter to update firstname`}
+                  icon={
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="BLACK"
+                      class="size-8"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  }
                 />
                 <Inputbox
+                  vissibl={true}
+                  message={"Enter a name to update your last name"}
                   onChange={(e) => {
                     setChangeLastname(e.target.value);
                   }}
                   labelname={`LastName : ${lastname}`}
-                  placeholder="enter to update lastname"
+                  icon={
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="BLACK"
+                      class="size-8"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  }
                 />
                 {changePassword}
                 <Inputbox
@@ -99,7 +134,22 @@ const Modal = () => {
                     setChangePassword(e.target.value);
                   }}
                   labelname={`Password  `}
-                  placeholder="shrey"
+                  icon={
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="black"
+                      className="size-8"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
+                      />
+                    </svg>
+                  }
                 />
               </div>
               <div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">

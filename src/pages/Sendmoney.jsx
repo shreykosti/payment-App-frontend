@@ -3,22 +3,27 @@ import { Button } from "../components/Button";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Navbar } from "../components/Navbar";
 import axios from "axios";
 export default function Sendmoney() {
   const tocken = localStorage.getItem("token");
   const navigate = useNavigate();
   const location = useLocation();
   const [amount, setAmount] = useState(0);
-  const { firstname, id, lastname, usernameSendTo, balance } =
+  const [vissible, setVissible] = useState("hidden");
+  const { firstname, id, lastname, usernameSendTo, balance, you, youname } =
     location.state || {
       firstname: "NOT AUTHRISED",
       id: "0",
       lastname: "User",
       usernameSendTo: "NOT AUTHRISED",
+      you: "NOT AUTHRISED",
+      youname: "NOT AUTHRISED",
     };
 
   return (
     <div className="w-screen h-screen flex justify-center items-center box-si box-border bg-slate-700">
+      <Navbar usern={you} display={vissible} name={youname} />
       <div className=" bg-c2 w-max p flex flex-col justify-center items-center p-4 rounded-lg border border-slate-500">
         <Heading input="Send Money" />
         <div className=" w-full h-20 py-14 flex  items-center gap-10  rounded-md">
@@ -38,7 +43,7 @@ export default function Sendmoney() {
           </svg>
           <p className="text-black text-2xl ml-[-20px]">{usernameSendTo}</p>
         </div>
-        <div className="w-full mt-[-14px]">
+        <div className="w-full">
           <input
             type="number"
             placeholder="Enter amount to send"
@@ -53,11 +58,13 @@ export default function Sendmoney() {
           />
         </div>
         <Button
+          data={`Sending : ${amount}`}
           input="Initiate Transfer"
           onClick={() => {
             console.log(amount, usernameSendTo, id);
             if (amount <= 0) {
               alert("Please enter a valid amount");
+              setVissible("flex");
               return;
             }
             navigate("/pinpage", {

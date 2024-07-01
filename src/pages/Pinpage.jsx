@@ -28,7 +28,7 @@ export default function Pinpage({}) {
     <div className="w-full flex flex-col justify-center items-center  h-screen text-white">
       <div>
         <div className={visible2}>
-          <Logoutbutton />
+          <Logoutbutton data="shrey" />
           <Dashboardbutton />
         </div>
         <div className=" w-[320px] sm:w-max border rounded-lg flex flex-col items-center p-10 px-0">
@@ -121,7 +121,9 @@ export default function Pinpage({}) {
                     }
                   )
                   .then((res) => {
-                    alert(`${res.data.message} 🎉🎉`);
+                    // alert(`${res.data.message} 🎉🎉`);
+                    const notify = () => toast(`done🎉🎉`);
+                    notify();
                     navigate("/transfer/complete", {
                       state: {
                         amount: amount,

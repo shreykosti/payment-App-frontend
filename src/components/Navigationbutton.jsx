@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 
-export function Logoutbutton() {
+export function Logoutbutton({ data }) {
   const navigate = useNavigate();
   return (
     <button
-      className="flex items-center gap-2 px-2 sm:px-6 py-3 font-sans text-xs font-bold text-center text-white uppercase align-middle transition-all rounded-lg select-none disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none hover:bg-gray-900 active:bg-gray-900/20 border"
+      className="relative isolation-auto z-10  before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full  before:-right-full before:hover:right-0 before:rounded-full before:bg-black before:-z-10 before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-700 inline-flex items-center justify-center px-4 py-3 text-sm font-semibold text-white  border border-gray-200 rounded-lg shadow-sm gap-x-2  disabled:opacity-50 disabled:pointer-events-noneo"
       onClick={() => {
         localStorage.removeItem("token");
         navigate("/");
@@ -15,13 +15,12 @@ export function Logoutbutton() {
   );
 }
 
-export function Signinbutton() {
+export function Signinbutton({ data }) {
   const navigate = useNavigate();
   return (
     <button
-      className="flex items-center gap-2 px-2 sm:px-6 py-3 font-sans text-xs font-bold text-center text-white uppercase align-middle transition-all rounded-lg select-none disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none hover:bg-gray-900 active:bg-gray-900/20 border"
+      className="relative isolation-auto z-10  before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full  before:-right-full before:hover:right-0 before:rounded-full before:bg-black before:-z-10 before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-700 inline-flex items-center justify-center px-4 py-3 text-sm font-semibold text-white  border border-gray-200 rounded-lg shadow-sm gap-x-2  disabled:opacity-50 disabled:pointer-events-none"
       onClick={() => {
-        localStorage.removeItem("token");
         navigate("/signin");
       }}
     >
@@ -30,13 +29,12 @@ export function Signinbutton() {
   );
 }
 
-export function Signupbutton() {
+export function Signupbutton({ data }) {
   const navigate = useNavigate();
   return (
     <button
-      className="flex items-center gap-2 px-2 sm:px-6 py-3 font-sans text-xs font-bold text-center text-white uppercase align-middle transition-all rounded-lg select-none disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none hover:bg-gray-900 active:bg-gray-900/20 border"
+      className="relative isolation-auto z-10  before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full  before:-right-full before:hover:right-0 before:rounded-full before:bg-black before:-z-10 before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-700 inline-flex items-center justify-center px-4 py-3 text-sm font-semibold text-white  border border-gray-200 rounded-lg shadow-sm gap-x-2  disabled:opacity-50 disabled:pointer-events-none"
       onClick={() => {
-        localStorage.removeItem("token");
         navigate("/signup");
       }}
     >
@@ -45,11 +43,11 @@ export function Signupbutton() {
   );
 }
 
-export function Dashboardbutton() {
+export function Dashboardbutton({ data }) {
   const navigate = useNavigate();
   return (
     <button
-      className="flex items-center gap-2 px-2 sm:px-6 font-sans text-[0.7rem] sm:text-xs font-bold text-center text-white uppercase align-middle transition-all rounded-lg select-none disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none hover:bg-gray-900 active:bg-gray-900/20 border"
+      className="relative isolation-auto z-10  before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full  before:-right-full before:hover:right-0 before:rounded-full before:bg-black before:-z-10 before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-700 inline-flex items-center justify-center px-4 py-3 text-sm font-semibold text-white  border border-gray-200 rounded-lg shadow-sm gap-x-2  disabled:opacity-50 disabled:pointer-events-none"
       onClick={() => {
         navigate("/dashboard");
       }}
@@ -59,16 +57,16 @@ export function Dashboardbutton() {
   );
 }
 
-export function Updatebutton() {
+export function TransationHistory({ data }) {
   const navigate = useNavigate();
   return (
     <button
-      className="h-full flex items-center gap-2 px-2 sm:px-6 font-sans text-[0.7rem] sm:text-xs font-bold text-center text-white uppercase align-middle transition-all rounded-lg select-none disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none hover:bg-gray-900 active:bg-gray-900/20 border"
+      className="relative isolation-auto z-10  before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full  before:-right-full before:hover:right-0 before:rounded-full before:bg-black before:-z-10 before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-700 inline-flex items-center justify-center px-4 py-3 text-sm font-semibold text-white  border border-gray-200 rounded-lg shadow-sm gap-x-2  disabled:opacity-50 disabled:pointer-events-none"
       onClick={() => {
-        navigate("/update");
+        navigate("/transactionhistory");
       }}
     >
-      Update
+      History
     </button>
   );
 }

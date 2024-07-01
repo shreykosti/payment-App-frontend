@@ -15,7 +15,7 @@ export const Profileupdater = ({ outerdiv, innerbutton, name }) => {
   const tocken = localStorage.getItem("token");
   const navigate = useNavigate();
   return (
-    <div className={`hidden sm:block ${outerdiv} `}>
+    <div className={`hidden sm:block ${outerdiv}`}>
       <span className="bg-white">
         <button
           className={`hidden sm:flex items-center ${innerbutton}`}
@@ -94,6 +94,7 @@ export const Profileupdater = ({ outerdiv, innerbutton, name }) => {
               <div className="p-4 md:p-5 space-y-4 text-xl text-black">
                 {/* input */}
                 <Inputbox
+                  vissibl={true}
                   onChange={(e) => {
                     setChangeFirstname(e.target.value);
                   }}
@@ -101,6 +102,7 @@ export const Profileupdater = ({ outerdiv, innerbutton, name }) => {
                   placeholder={`enter to update firstname`}
                 />
                 <Inputbox
+                  vissibl={true}
                   onChange={(e) => {
                     setChangeLastname(e.target.value);
                   }}
@@ -132,8 +134,6 @@ export const Profileupdater = ({ outerdiv, innerbutton, name }) => {
                         }
                       )
                       .then((res) => {
-                        console.log(res.data);
-                        navigate("/dashboard");
                         window.location.reload();
                       })
                       .catch((err) => {

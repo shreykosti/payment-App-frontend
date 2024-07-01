@@ -1,4 +1,4 @@
-import { Navbar2 } from "../components/Navbar2";
+import {Navbar} from "../components/Navbar";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Toast } from "../components/Toast";
 import { useEffect, useState } from "react";
@@ -48,8 +48,8 @@ export default function Aftermoney() {
   return (
     <div className="flex flex-col items-center h-screen w-screen relative bg-slate-700 ">
       <Toast />
-      <Navbar2 name={name} />
-      <div className="flex flex-col items-center w-full gap-3 relative top-10 vsm:top-20 text-[0.8rem] sm:text-sm">
+      <Navbar name={name} />
+      <div className="flex flex-col items-center w-full gap-3 relative top-32 vsm:top-20 text-[0.8rem] sm:text-sm">
         <div className="w-11/12 sm:w-3/4 xl:w-1/2  border rounded-lg p-3 flex flex-col gap-3 ">
           <span className="p-2 sm:p-3 border border-slate-500 hover:bg-slate-950 flex justify-between">
             <span>Your Previous Balance :</span>
